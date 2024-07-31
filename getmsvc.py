@@ -141,10 +141,7 @@ tools = first(manifest["channelItems"], lambda x: x["id"] == "Microsoft.VisualSt
 resource = first(tools["localizedResources"], lambda x: x["language"] == "en-us")
 license = resource["license"]
 
-if not args.accept_license:
-  accept = input(f"Do you accept Visual Studio license at {license}, and also confirm that you have a valid license Visual Studio license allowing you to download the VS Build Tools [Y/N] ?")
-  if not accept or accept[0].lower() != "y":
-    exit(0)
+
 
 shutil.rmtree(SDK_OUTPUT, ignore_errors = True)
 total_download = 0
